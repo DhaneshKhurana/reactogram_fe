@@ -4,5 +4,18 @@
 }
 
 .socialImg{
-  width:90%;
+  max-width: 100%;
+  height:auto;
+}
+
+.row{
+  max-width: 100% !important;
+}
+
+@media screen and (max-width:768px){
+  .card{
+    box-shadow: none !important;
+    border: none;
+    margin-top: 10px;
+  }
 }

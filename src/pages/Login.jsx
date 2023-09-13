@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/Login.css";
-import img_Social from "../img/social-desktop.PNG"
+import img_Social from "../img/social-desktop.PNG";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
@@ -12,7 +13,7 @@ function Login() {
       {/*Right side Login Card*/}
       <div className="col-12 col-md-4 ">
         <div className=" card social-form shadow">
-          <div className="card-body  justify-content-center align-items-center">
+          <div className="card-body justify-content-center align-items-center">
             <h2>Log In</h2>
             <form className="justify-content-center align-items-center">
               <div className="form-group">
@@ -37,18 +38,10 @@ function Login() {
               </div>
             </form>
             <form>
-              <div>
-                <span>
-                  <hr className="w-45" />
-                  OR
-                  <hr className="w-45" />
-                </span>
-              </div>
-              <div>
-                <span className="text-muted">
-                  Don't have an account? <a href="#">Sign Up</a>
-                </span>
-              </div>
+              <hr/> OR <hr/>
+              <span className="text-muted">
+                Don't have an account? <Link to="/signup">Sign Up</Link> 
+              </span>
             </form>
           </div>
         </div>
