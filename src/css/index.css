@@ -10,5 +10,6 @@ body, html {
 /* Applying flex layout to #root to fill the entire viewport */
 #root {
   width: 100%;
+  min-height: 100vh;
   background-color: rgba(224, 210, 210, 0.925);
 }

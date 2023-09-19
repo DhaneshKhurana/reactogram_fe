@@ -1,0 +1,13 @@
+.profile-img{
+    width: 100px;
+    height: 100px;
+}
+
+.rightBorder{
+    border-right: 2px solid gray;
+    
+}
+
+h4, h5{
+    margin: 0px;
+}
