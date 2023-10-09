@@ -12,6 +12,10 @@
     display: none;
 }
 
+#dropdown-basic{
+    padding: 0px !important;
+}
+
 @media screen and (max-width:540px) {
     .bi-search{
         display: block;

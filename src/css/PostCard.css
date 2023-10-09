@@ -6,3 +6,34 @@
 .postCard{
     width:85%
 }
+
+#dropdown-basic{
+    background-color: #f7f7f7;
+    border: none;
+}
+
+.uploadBox{
+    height: 300px;
+    border: 2px dashed #EC2A81;
+}
+
+.uploadBtn{
+    width:100px;
+    background-color: #EC2A81;
+    border: none;
+}
+
+.formTextBox{
+    border: none;
+    border-radius: 0px;
+    border-bottom: 2px solid grey;
+}
+
+.imgPreview{
+    width:100%;
+    height: auto;
+}
+
+.fileUpload{
+    visibility:hidden;
+}

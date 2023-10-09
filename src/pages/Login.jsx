@@ -1,9 +1,53 @@
 import React from "react";
 import "../css/Login.css";
 import img_Social from "../img/social-desktop.PNG";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { API_BASE_URL } from "../config";
+import sAlert from "sweetalert2";
+import { useDispatch, useSelector } from "react-redux";
 
 function Login() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.userReducer);
+
+  const onLogin = (ev) => {
+    ev.preventDefault();
+
+    const mobElem = document.getElementById("mob");
+    const pwdElem = document.getElementById("pwd");
+    console.log(`Login: mob Elem value ${mobElem.value}`);
+    console.log("Login: pwdElem value", pwdElem.value);
+
+    const reqBody = { mob: mobElem.value, pwd: pwdElem.value };
+    axios.post(`${API_BASE_URL}/login`, reqBody).then((res) => {
+      if (res.status == 200) {
+        sAlert.fire({
+          icon: "success",
+          title: res.status,
+          text: res.data.Success,
+          timer: 1500,
+        });
+
+        localStorage.setItem("token", res.data.token);
+        navigate("/profile");
+        console.log("Login: user::", user);
+        debugger;
+        dispatch({ type: "Login_Success", payload: res.data.id });
+        console.log("Login: user::", user);
+        debugger;
+      } else {
+        sAlert.fire({
+          icon: "warning",
+          title: res.status,
+          text: res.data.Error,
+          timer: 2000,
+        });
+      }
+    });
+  };
+
   return (
     <div className="row d-flex flex-grow-1 align-items-center justify-content-center ">
       {/* left side social image*/}
@@ -20,27 +64,31 @@ function Login() {
                 <input
                   type="text"
                   className="form-control mt-2 "
-                  id="email"
-                  placeholder="Enter username, email or phone"
+                  id="mob"
+                  placeholder="Enter mobile"
                 ></input>
 
                 <input
                   type="text"
                   className="form-control mt-2 "
-                  id="password"
+                  id="pwd"
                   placeholder="Enter password"
                 ></input>
                 <div className="d-grid mt-3 ">
-                  <button type="submit" className="btn btn-primary">
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    onClick={onLogin}
+                  >
                     Submit
                   </button>
                 </div>
               </div>
             </form>
             <form>
-              <hr/> OR <hr/>
+              <hr /> OR <hr />
               <span className="text-muted">
-                Don't have an account? <Link to="/signup">Sign Up</Link> 
+                Don't have an account? <Link to="/signup">Sign Up</Link>
               </span>
             </form>
           </div>

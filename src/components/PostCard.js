@@ -18,7 +18,7 @@ const PostCard = () => {
           </div>
           <div className="col-6 d-flex flex-row-reverse align-items-center">
             <span className="float-end ">
-              <i class="bi bi-three-dots-vertical"></i>
+              <i className="bi bi-three-dots-vertical"></i>
             </span>
           </div>
         </div>
@@ -33,9 +33,9 @@ const PostCard = () => {
         <div className="row">
           <div className="col-6">
             <span>
-              <i class="bi bi-heart"></i>
-              <i class="bi bi-chat"></i>
-              <i class="bi bi-geo-alt"></i>
+              <i className="bi bi-heart"></i>
+              <i className="bi bi-chat"></i>
+              <i className="bi bi-geo-alt"></i>
             </span>
           </div>
           <div className="col-6">
